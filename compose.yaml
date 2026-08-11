@@ -1,0 +1,18 @@
+services:
+  gateway:
+    build:
+      context: .
+    image: lessen-mcp-gateway:local
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4444:4444"
+    volumes:
+      - gateway-config:/config
+      - gateway-data:/data
+    mem_limit: 192m
+    environment:
+      MCP_GATEWAY_CONFIG: /config/mcp-gateway-config.json
+
+volumes:
+  gateway-config:
+  gateway-data:

@@ -1,0 +1,14 @@
+.git
+.github
+bin
+dist
+data
+*.db
+*.db-shm
+*.db-wal
+*.log
+mcp-gateway-config.json
+.env
+.env.*
+coverage.out
+*.prof

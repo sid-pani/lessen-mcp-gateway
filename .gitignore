@@ -1,0 +1,27 @@
+# Binaries
+/bin/
+/dist/
+/mcp-gate
+*.exe
+
+# Runtime data
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# Local configuration and secrets
+mcp-gateway-config.json
+.env
+.env.*
+!.env.example
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Test and profiling artifacts
+coverage.out
+*.prof

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install native libraries
+        run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev libpq-dev
+      - name: Formatting
+        run: test -z "$(gofmt -l $(find cmd internal web -name '*.go' -type f))"
+      - name: Vet
+        run: go vet ./...
+      - name: Race tests
+        run: go test -race ./...
+      - name: PostgreSQL adapter build/tests
+        run: go test -tags postgres ./...
+      - name: JavaScript syntax
+        run: node --check web/app.js
+      - name: Build
+        run: make build
+      - name: Docker build
+        run: docker build -t lessen-mcp-gateway:ci .
