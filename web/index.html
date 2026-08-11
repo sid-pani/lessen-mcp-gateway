@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>MCP Gateway</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div id="app" class="app-shell" aria-live="polite">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true"><span></span></div>
+        <div class="brand-name">MCP Gateway</div>
+        <button class="icon-button sidebar-collapse" type="button" aria-label="Collapse sidebar" title="Collapse sidebar" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7-5 5 5 5M19 7l-5 5 5 5"/></svg>
+        </button>
+      </div>
+      <nav id="primary-nav" class="primary-nav"></nav>
+      <div class="sidebar-spacer"></div>
+      <div id="gateway-badge" class="gateway-badge skeleton-block"></div>
+      <div class="sidebar-footer">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span id="theme-icon"></span><span id="theme-label">Theme</span>
+        </button>
+        <div class="local-user"><span class="avatar">L</span><span><strong>Local gateway</strong><small>Developer mode</small></span></div>
+      </div>
+    </aside>
+    <main id="content" class="content"><div class="initial-loader"><span class="spinner"></span><span>Loading gateway…</span></div></main>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="assertive"></div>
+  <div id="modal-root"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

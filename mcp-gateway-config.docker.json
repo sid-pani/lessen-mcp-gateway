@@ -1,0 +1,43 @@
+{
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 4444,
+    "adminPath": "/admin",
+    "mcpPath": "/mcp",
+    "shutdownTimeout": "10s",
+    "readHeaderTimeout": "5s",
+    "requestTimeout": "60s",
+    "maxRequestBytes": 8388608,
+    "maxResponseBytes": 33554432
+  },
+  "storage": {
+    "type": "sqlite",
+    "path": "/data/gateway.db"
+  },
+  "memory": {
+    "softLimitMB": 128,
+    "schemaCacheMB": 16,
+    "logBufferMB": 2,
+    "maxConcurrent": 128,
+    "maxConcurrentPerServer": 16
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "maxFileMB": 16,
+    "keepFiles": 3
+  },
+  "discovery": {
+    "onStartup": true,
+    "interval": "15m",
+    "timeout": "20s",
+    "healthInterval": "30s",
+    "healthTimeout": "5s",
+    "maxConcurrent": 4,
+    "maxHealthConcurrent": 8,
+    "maxToolsPerServer": 10000,
+    "maxResourcesPerServer": 10000,
+    "maxPromptsPerServer": 2000
+  },
+  "mcpServers": {}
+}
